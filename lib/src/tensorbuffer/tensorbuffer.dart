@@ -53,7 +53,7 @@ abstract class TensorBuffer {
     switch (dataType) {
       case TensorType.float32:
         return TensorBufferFloat(shape);
-      case TensorType.int8:
+      case TensorType.uint8:
         return TensorBufferUint8(shape);
       default:
         throw ArgumentError(
@@ -72,7 +72,7 @@ abstract class TensorBuffer {
     switch (dataType) {
       case TensorType.float32:
         return TensorBufferFloat.dynamic();
-      case TensorType.int8:
+      case TensorType.uint8:
         return TensorBufferUint8.dynamic();
       default:
         throw ArgumentError(

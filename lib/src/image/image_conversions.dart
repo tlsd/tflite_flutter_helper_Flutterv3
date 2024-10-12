@@ -36,9 +36,9 @@ class ImageConversions {
 
   static Image convertGrayscaleTensorBufferToImage(TensorBuffer buffer) {
     // Convert buffer into Uint8 as needed.
-    TensorBuffer uint8Buffer = buffer.getDataType() == TensorType.int8
+    TensorBuffer uint8Buffer = buffer.getDataType() == TensorType.uint8
         ? buffer
-        : TensorBuffer.createFrom(buffer, TensorType.int8);
+        : TensorBuffer.createFrom(buffer, TensorType.uint8);
 
     final shape = uint8Buffer.getShape();
     final grayscale = ColorSpaceType.GRAYSCALE;

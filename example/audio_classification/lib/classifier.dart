@@ -13,7 +13,7 @@ class Classifier {
 
   late TensorBuffer _outputBuffer;
 
-  TensorType _outputType = TensorType.int8;
+  TensorType _outputType = TensorType.uint8;
 
   final String _modelFileName = 'yamnet.tflite';
   final String _labelFileName = 'assets/yamnet_class_map.csv';
