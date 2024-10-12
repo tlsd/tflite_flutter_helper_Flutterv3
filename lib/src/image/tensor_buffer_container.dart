@@ -53,7 +53,8 @@ class TensorBufferContainer implements BaseImageContainer {
   @override
   TensorBufferContainer clone() {
     return TensorBufferContainer._(
-        TensorBuffer.createFrom(_buffer, _buffer.getDataType()),
+        TensorBuffer.createFrom(
+            _buffer, TensorType.fromValue(_buffer.getDataType())),
         colorSpaceType,
         height,
         width);
@@ -75,7 +76,7 @@ class TensorBufferContainer implements BaseImageContainer {
   }
 
   @override
-  TensorBuffer getTensorBuffer(int dataType) {
+  TensorBuffer getTensorBuffer(TensorType dataType) {
     // If the data type of buffer is desired, return it directly. Not making a defensive copy for
     // performance considerations. During image processing, users may need to set and get the
     // TensorBuffer many times.

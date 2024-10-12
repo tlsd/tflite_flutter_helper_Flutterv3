@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:image/image.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:tflite_flutter_helper/src/image/color_space_type.dart';
 import 'package:tflite_flutter_helper/src/tensorbuffer/tensorbuffer.dart';
 
@@ -18,7 +19,7 @@ abstract class BaseImageContainer {
 
   /// Gets the {@link TensorBuffer} representation with the specific {@code dataType} of the
   /// underlying image format.
-  TensorBuffer getTensorBuffer(int dataType);
+  TensorBuffer getTensorBuffer(TensorType dataType);
 
   /// Gets the {@link Image} representation of the underlying image format. */
   CameraImage get mediaImage;

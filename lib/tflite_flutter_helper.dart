@@ -19,7 +19,6 @@ export 'src/common/operator.dart';
 export 'src/common/processor.dart';
 export 'src/common/sequential_processor.dart';
 export 'src/common/support_preconditions.dart';
-export 'src/common/tensor_mapping.dart';
 export 'src/common/tensor_processor.dart';
 export 'src/common/tensor_operator.dart';
 export 'src/image/ops/resize_op.dart';

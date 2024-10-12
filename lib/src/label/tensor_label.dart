@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:tflite_flutter_helper/src/common/support_preconditions.dart';
 import 'package:tflite_flutter_helper/src/tensorbuffer/tensorbuffer.dart';
 
@@ -92,7 +93,7 @@ class TensorLabel {
             "get a <String, TensorBuffer> map requires the labels are set on the first non-1 axis.");
     List<String> labels = _axisLabels[labeledAxis]!;
 
-    int dataType = _tensorBuffer.getDataType();
+    TensorType dataType = TensorType.fromValue(_tensorBuffer.getDataType());
     int typeSize = _tensorBuffer.getTypeSize();
     int flatSize = _tensorBuffer.getFlatSize();
 
