@@ -29,13 +29,12 @@ import 'package:tflite_flutter_helper/src/tensorbuffer/tensorbuffer.dart';
 /// See [ImageProcessor] which is often used for transforming a [TensorImage].
 class TensorImage {
   BaseImageContainer? _container;
-  final TensorType _tfLiteType;
+  final TensorType _type;
 
   /// Initialize a [TensorImage] object.
   ///
-  /// Note: For Image with float value pixels use [TensorImage(TfLiteType.float)]
-  TensorImage([TensorType dataType = TensorType.uint8])
-      : _tfLiteType = dataType;
+  /// Note: For Image with float value pixels use [TensorImage(TensorType.float)]
+  TensorImage([TensorType dataType = TensorType.uint8]) : _type = dataType;
 
   /// Initialize [TensorImage] from [Image]
   ///
@@ -135,7 +134,7 @@ class TensorImage {
   ///
   /// Currently only UINT8 and FLOAT32 are possible.
   TensorType get dataType {
-    return _tfLiteType;
+    return _type;
   }
 
   /// Gets the current data type.
@@ -146,8 +145,8 @@ class TensorImage {
   /// Gets the current data type.
   ///
   /// Currently only UINT8 and FLOAT32 are possible.
-  TensorType get tfLiteType {
-    return _tfLiteType;
+  TensorType get type {
+    return _type;
   }
 
   /// Returns the underlying [Image] representation of this [TensorImage].
@@ -195,7 +194,7 @@ class TensorImage {
     if (_container == null) {
       throw new StateError("No image has been loaded yet.");
     }
-    return _container!.getTensorBuffer(_tfLiteType);
+    return _container!.getTensorBuffer(_type);
   }
 
   /// Returns the underlying [TensorBuffer] representation for this [TensorImage]

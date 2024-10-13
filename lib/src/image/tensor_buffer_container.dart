@@ -53,8 +53,7 @@ class TensorBufferContainer implements BaseImageContainer {
   @override
   TensorBufferContainer clone() {
     return TensorBufferContainer._(
-        TensorBuffer.createFrom(
-            _buffer, TensorType.fromValue(_buffer.getDataType())),
+        TensorBuffer.createFrom(_buffer, _buffer.getDataType()),
         colorSpaceType,
         height,
         width);
@@ -62,7 +61,7 @@ class TensorBufferContainer implements BaseImageContainer {
 
   @override
   Image get image {
-    if (_buffer.getDataType() != TfLiteType.kTfLiteUInt8) {
+    if (_buffer.getDataType() != TensorType.uint8) {
       // Print warning instead of throwing an exception. When using float models, users may want to
       // convert the resulting float image into Bitmap. That's fine to do so, as long as they are
       // aware of the potential accuracy lost when casting to uint8.

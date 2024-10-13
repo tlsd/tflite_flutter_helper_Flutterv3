@@ -29,8 +29,8 @@ class NormalizeOp implements TensorOperator {
   /// Note: If [mean] is set to 0 and [stddev] is set to 1, no computation will
   /// happen, and original input will be directly returned in execution.
   ///
-  /// Note: The returned [TensorBuffer] is always a [TfLiteType.float32] tensor at
-  /// present, except that the input is a [TfLiteType.uint8] tensor, [mean] is set to 0 and
+  /// Note: The returned [TensorBuffer] is always a [TensorType.float32] tensor at
+  /// present, except that the input is a [TensorType.uint8] tensor, [mean] is set to 0 and
   /// [stddev] is set to 1.
   ///
   ///
@@ -65,8 +65,8 @@ class NormalizeOp implements TensorOperator {
   /// Note: If all values in [mean] are set to 0 and all [stddev] are set to 1, no
   /// computation will happen, and original input will be directly returned in execution.
   ///
-  /// Note: The returned [TensorBuffer] is always a [TfLiteType.float32] tensor at
-  /// present, except that the input is a [TfLiteType.uint8] tensor, all [mean] are set to
+  /// Note: The returned [TensorBuffer] is always a [TensorType.float32] tensor at
+  /// present, except that the input is a [TensorType.uint8] tensor, all [mean] are set to
   /// 0 and all [stddev] are set to 1.
   ///
   /// List<double> [mean] are the mean values to be subtracted first for each channel.

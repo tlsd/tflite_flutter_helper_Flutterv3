@@ -66,7 +66,7 @@ class ImageConversions {
     }
 
     switch (buffer.getDataType()) {
-      case TfLiteType.kTfLiteUInt8:
+      case TensorType.uint8:
         List<int> byteArr = List.filled(flatSize, 0);
         for (int i = 0, j = 0; i < pixelValues.length; i++) {
           byteArr[j++] = pixelValues[i].r.round(); // Extract red channel
@@ -76,7 +76,7 @@ class ImageConversions {
         buffer.loadList(byteArr, shape: shape);
         break;
 
-      case TfLiteType.kTfLiteFloat32:
+      case TensorType.float32:
         List<double> floatArr = List.filled(flatSize, 0.0);
         for (int i = 0, j = 0; i < pixelValues.length; i++) {
           floatArr[j++] = pixelValues[i].r.toDouble(); // Extract red channel
